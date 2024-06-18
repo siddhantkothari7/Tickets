@@ -1,0 +1,46 @@
+#Streamlit app
+import streamlit as st
+import pandas as pd
+from sqlalchemy.orm import sessionmaker
+from database import Session
+from models import Stubhub
+
+# Set up the session
+session = Session()
+
+# Streamlit app title
+st.title("Stubhub Prices Tracker")
+
+# Display entries in the database
+st.header("Current Entries in Database")
+entries = session.query(Stubhub).all()
+if entries:
+    df = pd.DataFrame([{
+        "Time": entry.time,
+        "Raw Price": entry.raw_price,
+        "Fees": entry.fees,
+        "Total Price": entry.total_price,
+        "Lowest Price Time": entry.lowest_price_time,
+        "Lowest Price": entry.lowest_price
+    } for entry in entries])
+    
+    st.dataframe(df)
+
+    # Basic Visualizations
+    st.subheader("Basic Visualizations")
+
+    st.line_chart(df.set_index("Time")[["Total Price", "Lowest Price"]])
+    st.bar_chart(df.set_index("Time")[["Total Price", "Lowest Price"]])
+
+    # Using Matplotlib for Custom Visualization
+    st.subheader("Matplotlib Visualization")
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots()
+    df.set_index("Time")[["Total Price", "Lowest Price"]].plot(kind='line', ax=ax)
+    ax.set_ylabel("Price")
+    ax.set_title("Total Price and Lowest Price Over Time")
+    st.pyplot(fig)
+
+else:
+    st.write("No entries found in the database.")
