@@ -1,6 +1,6 @@
 import queue
 from database import Session
-from Tickets.models import Stubhub
+# from models import Stubhub
 
 def consumer(q):
     while True:

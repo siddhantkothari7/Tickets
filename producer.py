@@ -14,7 +14,7 @@ def producer(q):
             print("60 minutes have passed. Exiting program.")
             break
         else:
-            time.sleep(10)
+            time.sleep(30)
             start = datetime.now()
             producer_wrapper(q)
             end = datetime.now()
@@ -76,7 +76,9 @@ def producer_wrapper(q):
 
     #### get current time
     now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
+    # print("Now: " + now)
+    current_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    print("Current Time: " + current_time)
 
     # check for price drop
     if stubhub_price_raw < previous_raw_price and stubhub_price_raw < 250:
