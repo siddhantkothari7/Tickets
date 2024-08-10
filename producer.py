@@ -21,7 +21,7 @@ def producer(q):
             elapsed_time += time_difference(start, end)
 
 def producer_wrapper(q):
-    url = "https://www.stubhub.com/keinemusik-brooklyn-tickets-7-5-2024/event/152788319/?quantity=1"
+    url = "https://www.stubhub.com/adriatique-brooklyn-tickets-9-7-2024/event/153892957/"
 
     previous_raw_price = float('inf')
 

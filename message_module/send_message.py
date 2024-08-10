@@ -10,7 +10,7 @@ import os
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 fromnumber = "+18333133856"  # twilio
-tonumber = "+16175133836"  # your phone
+tonumber = "+18777804236"  # your phone
 body_text = "Hi!  I'm a sample text message!"
 ######################################################
 

@@ -20,17 +20,6 @@ class Stubhub(Base):
     lowest_price_time = Column(String)
     lowest_price = Column(Integer)
 
-
-class Vivid(Base):
-    __tablename__ = 'vividseats_prices'
-    id = Column(Integer, primary_key=True)
-    time = Column(String)
-    raw_price = Column(String)
-    fees = Column(Integer)
-    total_price = Column(Integer)
-    lowest_price_time = Column(String)
-    lowest_price = Column(Integer)
-
 # Step 4: Create the table in the database
 Base.metadata.create_all(engine)
 
