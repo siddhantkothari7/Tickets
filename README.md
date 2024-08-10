@@ -2,6 +2,8 @@
 
 Functions to run:
 
+Updating the readme.
+
 To init db:
 python create_database.py
 
