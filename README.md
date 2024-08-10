@@ -1,6 +1,6 @@
 # Tickets
-Hello
-Functions to run:
+
+Functions to reproduce:
 
 To init db:
 python create_database.py
